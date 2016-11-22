@@ -67,4 +67,7 @@ returnMatches <- function(x){
   }
   return(paste(allMatches, collapse= ", "))
 }
-rangesMod <- cbind(rangesMod, apply(ranges, MARGIN=1, returnMatches))
+ranges <- cbind(ranges, apply(ranges, MARGIN=1, returnMatches))
+
+#line for writing a data frame to csv
+write.table(ranges, file="ranges.csv", row.names= FALSE, col.names= TRUE, sep=",")
